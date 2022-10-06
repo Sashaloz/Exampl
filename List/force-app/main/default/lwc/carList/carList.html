@@ -1,0 +1,78 @@
+<template>
+    <!-- <div class="slds-p-around_medium lgc-bg">
+         <lightning-input
+            type="text" 
+            onchange={handleChange}>
+        </lightning-input>
+    </div>
+    <div class="slds-p-around_medium lgc-bg">
+        <H1>{output}</H1>
+        {car.motor}
+        {car.name}
+   </div> -->
+
+   <!-- <div class="slds-box slds-theme_default">
+   <table class="slds-table slds-table_cell-buffer slds-table_bordered slds-table_col-bordered">
+    <caption>Cars</caption>
+    <tbody>
+    <tr>
+        <th>Name</th>
+        <th>Motor</th>
+        <th>Color</th>
+        <th>Weight</th>
+    </tr>
+    <tr><td>BMW</td><td>3.5</td><td>Red</td><td>1.2</td></tr>
+    <tr><td>Nissan</td><td>6.0</td><td>Black</td><td>2.3</td></tr>
+    <tr><td>Renault</td><td>10.0</td><td>Silver</td><td>0.8</td></tr>
+</tbody>
+</table>
+   </div> -->
+
+   
+    <div style="height: 170px;">
+        <lightning-datatable
+            key-field="carid"
+            data={carData}
+            columns={carColumns}>
+        </lightning-datatable>
+    </div>
+
+    <!-- <div class="slds-p-bottom_large slds-p-left_large" style="width:500px">
+        <lightning-record-edit-form object-api-name="Account">
+            <lightning-messages></lightning-messages>
+            <lightning-input-field field-name="Name"> </lightning-input-field>
+            <lightning-input-field field-name="Phone"> </lightning-input-field>
+            <lightning-input-field field-name="BillingAddress">
+            </lightning-input-field>
+            <lightning-button
+                type="submit"
+                name="submit"
+                label="Create Account"
+            >
+            </lightning-button>
+        </lightning-record-edit-form>
+    </div> -->
+
+    <lightning-card title="Sign Up">
+        <p class="slds-var-p-around_small">
+            <lightning-layout multiple-rows>
+                <lightning-layout-item padding="around-small" size="12" medium-device-size="6" large-device-size="6">
+                    <lightning-input name="firstName" class="validate" type="text" label="First Name" required></lightning-input>
+                    <lightning-input name="password" class="validate" type="password" label="Password" required></lightning-input>
+                    <lightning-input name="email" class="validate" type="email" label="Email" pattern="[A-Za-z0-9._-]+@[a-z0-9-]+.[a-z]{2,}$" message-when-pattern-mismatch="Please enter a valid email" required></lightning-input>
+                    <lightning-combobox name="country" class="validate" label="Country" options={countryOptions} required></lightning-combobox>
+                </lightning-layout-item>
+                <lightning-layout-item padding="around-small" size="12" medium-device-size="6" large-device-size="6">
+                    <lightning-input name="lastName" class="validate" type="text" label="Last Name" required></lightning-input>
+                    <lightning-input name="company" class="validate" type="text" label="Company" required></lightning-input>
+                    <lightning-input name="phone" class="validate" type="tel" label="Phone" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}$" message-when-pattern-mismatch="Please enter a valid phone number" required></lightning-input>
+                    <lightning-input name="pincode" class="validate" type="number" label="Pin Code" min="1000" max="999999" message-when-range-overflow="Please enter a correct pincode" message-when-range-underflow="Please enter a correct pincode"></lightning-input>
+                </lightning-layout-item>
+                <lightning-layout-item size="12" class="slds-var-p-top_small">
+                    <lightning-button class="slds-align_absolute-center" label="Sign Up" onclick={createContact}></lightning-button>    
+                </lightning-layout-item>
+            </lightning-layout>
+        </p>
+    </lightning-card>
+   
+</template>
